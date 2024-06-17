@@ -8,9 +8,10 @@ export default function Login(){
     const [password,setPassword] = useState('');
     const [redirect,setRedirect] = useState(false);
     const {setUserInfo} = useContext(UserContext);
+    
     async function login(ev) {
       ev.preventDefault();
-      const response = await fetch('http://localhost:4000/login', {
+      const response = await fetch('http://localhost:4001/login', {
         method: 'POST',
         body: JSON.stringify({username, password}),
         headers: {'Content-Type':'application/json'},
@@ -34,10 +35,12 @@ export default function Login(){
        <form className="login" onSubmit={login}>
         <h1>Log In</h1>
         <input type="text" 
-               placeholder="username"  
+               placeholder="username" 
+               value={username} 
                onChange={ev => setUsername(ev.target.value)}/>
         <input type="password"  
                placeholder="password"
+               value={password}
                onChange={ev => setPassword(ev.target.value)} />
         <button>Log In</button>
        </form>

@@ -2,8 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require("mongoose");
 const User = require('./models/User');
-const Post = require('./models/Post');
-const bcrypt = require('bcryptjs');
+const Post = require('./models/Posts');
+const bcrypt = require('bcrypt')
 const app = express();
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
@@ -19,7 +19,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
-mongoose.connect('mongodb+srv://blog:RD8paskYC8Ayj09u@cluster0.pflplid.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect("mongodb+srv://alphazoidblog:BS9yQoNHPIgPjYK8@cluster0.prxegsg.mongodb.net")
+ 
+//mongodb+srv://alphazoidblog:BS9yQoNHPIgPjYK8@cluster0.prxegsg.mongodb.net/
+//BS9yQoNHPIgPjYK8
+
 
 app.post('/register', async (req,res) => {
   const {username,password} = req.body;
@@ -134,5 +138,5 @@ app.get('/post/:id', async (req, res) => {
   res.json(postDoc);
 })
 
-app.listen(4000);
+app.listen(4001);
 //
