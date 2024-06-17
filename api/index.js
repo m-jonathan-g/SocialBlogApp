@@ -17,7 +17,7 @@ const secret = 'asdfe45we45w345wegw345werjktjwertkj';
 app.use(cors({credentials:true,origin:'http://localhost:3000'}));
 app.use(express.json());
 app.use(cookieParser());
-app.use('/uploads', express.static(__dirname + '/uploads'));
+app.use('/uploads', express.static(__dirname + '/uploads')); 
 
 mongoose.connect("mongodb+srv://alphazoidblog:BS9yQoNHPIgPjYK8@cluster0.prxegsg.mongodb.net")
  
@@ -138,5 +138,6 @@ app.get('/post/:id', async (req, res) => {
   res.json(postDoc);
 })
 
-app.listen(4001);
+
+app.listen(3000);
 //
