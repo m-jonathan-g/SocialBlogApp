@@ -7,7 +7,7 @@ import { UserContext } from './UserContext';
 export default function Header(){
     const {setUserInfo, userInfo} = useContext(UserContext)
     useEffect(() => {
-        fetch('https://localhost:4001/profile', {
+        fetch('https://localhost:3000/profile', {
             credentials: 'include'
         }).then(response => {
             response.json().then(userInfo => {
@@ -17,7 +17,7 @@ export default function Header(){
     }, [])
 
     function logout() {
-        fetch('http://localhost:4001/logout', {
+        fetch('http://localhost:3000/logout', {
             credentials: 'include',
             method: 'POST' ,
         })
